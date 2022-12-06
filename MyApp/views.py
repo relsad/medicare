@@ -78,6 +78,12 @@ def patient_dashboard(request):
     appointments=Appointment.objects.all().filter(patientId=request.user.id).order_by('-id')[:1]
     appointment=Appointment.objects.all().filter(patientId=request.user.id).count()
     print(appointment)
+    mydict={
+        'doctorName':"Not assigned",
+        'doctorcontact':"Not assigned",
+        'symptoms':"Not assigned",
+        'admitDate':"Not assigned",  
+        }
     if appointment!=0:
         status=appointments[0].status
         if status==True:
@@ -89,14 +95,6 @@ def patient_dashboard(request):
             'symptoms':appointments[0].description,
             'admitDate':appointments[0].appointmentDate,
             }
-    else:
-        print("hey")
-        mydict={
-        'doctorName':"Not assigned",
-        'doctorcontact':"Not assigned",
-        'symptoms':"Not assigned",
-        'admitDate':"Not assigned",  
-        }
     return render (request, 'MyApp/patient_dashboard.html',context=mydict)
 
 @login_required

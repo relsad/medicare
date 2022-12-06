@@ -42,7 +42,7 @@ class PatientUserInfo(forms.ModelForm):
 class PatientSignUpForm(forms.ModelForm):
     class Meta():
         model = Patient
-        fields = ('Patient_First_Name','Patient_Last_Name','gender', 'contact', 'address')        
+        fields = ('IIN','Patient_First_Name','Patient_Last_Name','Patient_Middle_Name', 'address', 'contact','emergency_number','blood_group','status', 'gender')        
 #_____________________________________________________________________________________________________________________
 
 class DoctorUserInfo(forms.ModelForm):
@@ -55,7 +55,8 @@ class DoctorUserInfo(forms.ModelForm):
 class DoctorSignUpForm(forms.ModelForm):
     class Meta():
         model = Doctor
-        fields = ('Doctor_First_Name','Doctor_Last_Name','gender','department', 'contact', 'address')
+        fields = ("date_of_birth",'IIN', "ID",'Doctor_First_Name','Doctor_Last_Name','Doctor_Middlename', 'contact', 'department','exp_years','photo_URI','category','price_of_appointment',
+        'degree','rating','address','gender')
         
 #_____________________________________________________________________________________________________________________
 class AdminUserInfo(forms.ModelForm):

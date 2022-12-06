@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+{% load crispy_forms_tags %}
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>complete responsive hospital website design </title>
+
+    <!-- font awesome cdn link  -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="canonical" href="https://getbootstrap.com/docs/5.2/examples/sign-in/">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <!-- custom css file link  -->
+    <link rel="stylesheet" href="{%  static 'css/style_med.css' %}">
+</head>
+<body>
+
+<!-- header section starts  -->
+
+<header class="header">
+
+    <a href="#" class="logo"> <i class="fas fa-heartbeat"></i> medcare. </a>
+
+    <nav class="navbar">
+        <a href="index.html#home">home</a>
+        <a href="index.html#services">services</a>
+        <a href="index.html#about">about</a>
+        <a href="index.html#doctors">doctors</a>
+        <a href="index.html#book">book</a>
+        <a href="index.html#review">review</a>
+        <a href="index.html#blogs">blogs</a>
+        <a href="index.html" class="btn">Sign In</a>
+        <a href="#" class="btn"> Log In</a>
+    </nav>
+
+    <div id="menu-btn" class="fas fa-bars"></div>
+
+</header>
+
+        <div class="form-signin">
+            <div class="name">  
+            </div>
+            <div class="content-box">
+                <div class="content-main">
+                    <div class="login-form">
+                        <h1>Admin Login</h1>
+                        <h4>New Admin? <a href="{% url 'MyApp:adminsignup' %}">Register Here!</a></h4><br>
+                         <form action="{% url 'MyApp:adminlogin' %}" method="POST">
+                            {% csrf_token %}
+                            {{ form|crispy }}
+                            <label for="username">Username:</label>
+                            <input type="username" name="username" placeholder="Enter Username">
+                            <br><br>
+                            <label for="password">Password:</label>
+                            <input type="password" name="password"><br>
+                        <input type="submit" class="btn-primary" value="Log in">
+                        </form>
+                    </div>
+                    
+                </div>
+            </div>
+       </div>
+    </body>   
+    <style> 
+                body  
+                {  
+                    background-image:url("https://styledme.com/wp-content/uploads/2021/03/minimal-zoom-background.jpg"); 
+                    background-repeat: no-repeat; 
+                    max_width=100%;
+                    max_height=100%;
+                    background-size: cover;
+                    position: relative;
+                } 
+            
+    </style>  
+</html>
+            

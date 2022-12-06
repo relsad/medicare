@@ -76,12 +76,25 @@ WSGI_APPLICATION = 'MyProject.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/2.2/ref/settings/#databases
 
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+#     }
+# }
+
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'postgres', 
+        'USER': 'postgres',
+        'PASSWORD': 'zscaqres26',
+        'HOST': '127.0.0.1', 
+        'PORT': '4044',
     }
 }
+
+# postgresql://postgres:zscaqres26@localhost:4044/postgres
 
 
 # Password validation
@@ -123,7 +136,7 @@ USE_I18N = True
 
 USE_L10N = True
 
-USE_TZ = True
+# USE_TZ = True
 
 
 # Static files (CSS, JavaScript, Images)

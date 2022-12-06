@@ -58,23 +58,25 @@ h1{
 <body>
 <h1 style="margin-top:8%;"> Status </h1>
 <div class="row">
-  <div class="column">
+  <div class="column" style="padding:2rem">
     <div class="card" style="border-top: 5px solid rgb(255, 106, 106);">
       <h3>{{doctorcount}}</h3>
       <h4>Total Doctor</h4>
       <p>Approval Required : {{pendingdoctorcount}}</p>
     </div>
   </div>
-
-  <div class="column">
+  </div>
+  <div class="row">
+    <div class="column" style="padding:2rem">
     <div class="card" style="border-top: 5px solid rgb(255, 178, 106);">
       <h3>{{patientcount}}</h3>
       <h4>Total Patient</h4>
       <p>Approval Required: {{pendingpatientcount}}</p>
     </div>
   </div>
-  
-  <div class="column">
+  </div>
+  <div class="row">
+    <div class="column" style="padding:2rem">
     <div class="card" style="border-top: 5px solid rgb(0, 175, 0); margin-left:250px; width:100%;">
       <h3>{{appointmentcount}}</h3>
       <h4>Total Appointment</h4>
