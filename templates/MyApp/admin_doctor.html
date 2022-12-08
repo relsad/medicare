@@ -10,33 +10,45 @@
 </head>
 <body>
 <h1>Doctor Summary </h1>
-    <div class="row">
+<div class="row">
     <div class="column">
-        <div class="card" style="border-top: 5px solid rgb(255, 106, 106);">
-        <a href="{% url 'MyApp:admin_doctor_record' %}" style="color:black; text-decoration:none;"><h2>Doctor Record</h2></a>
+        <div class="card" style="border-top: .2rem solid #4c50ed;">
+        <a href="{% url 'MyApp:admin_doctor_record' %}" style="color:black; text-decoration:none;">
+            <i class="fas fa-address-book"></i>
+            <h2>Doctor Record</h2></a>
         </div>
     </div>
+</div>
 
-
+<div class="row">
     <div class="column">
-        <div class="card" style="border-top: 5px solid rgb(255, 178, 106);">
-        <a href="{% url 'MyApp:admin_add_doctor' %}" style="color:black; text-decoration:none;"><h2>Register Doctor</h2></a>
+        <div class="card" style="border-top: .2rem solid #4c50ed;">
+        <a href="{% url 'MyApp:admin_add_doctor' %}" style="color:black; text-decoration:none;">
+            <i class="fas fa-plus-circle"></i>
+            <h2>Register Doctor</h2></a>
         </div>
     </div>
+</div>
 
+<div class="row">
     <div class="column">
-        <div class="card" style="border-top: 5px solid rgb(0, 175, 0);">
-        <a href="{% url 'MyApp:admin_approve_doctor' %}" style="color:black; text-decoration:none;"><h2>Approve Doctor </h2></a>
+        <div class="card" style="border-top: .2rem solid #4c50ed;">
+        <a href="{% url 'MyApp:admin_approve_doctor' %}" style="color:black; text-decoration:none;">
+            <i class="fas fa-clipboard-check"></i>
+            <h2>Approve Doctor </h2></a>
         </div>
     </div>
+</div>
 
+<div class="row">
     <div class="column">
-        <div class="card" style="border-top: 5px solid rgb(25, 68, 255);">
-        <a href="{% url 'MyApp:admin_doctor_specialization' %}" style="color:black; text-decoration:none; "><h2>Doctor Specialization</h2></a>
+        <div class="card" style="border-top: .2rem solid #4c50ed;">
+        <a href="{% url 'MyApp:admin_doctor_specialization' %}" style="color:black; text-decoration:none; ">
+            <i class="fas fa-address-card"></i>
+            <h2>Doctor Specialization</h2></a>
         </div>
     </div>
-
-    </div>
+</div>
 
 </body>
 </html>

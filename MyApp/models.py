@@ -52,14 +52,15 @@ class Patient(models.Model):
     contact = models.CharField(max_length=10)
     blood_group = models.CharField(max_length=3, choices=BLOODGROUP)
     emergency_number = models.CharField(max_length=10, default="")
-    status = models.CharField(
+    martial_status = models.CharField(
         max_length=20, choices=MARTIALSTATUS, default="-")
     address = models.CharField(max_length=350)
     symptoms = models.CharField(max_length=500, default="")
     admitDate = models.DateField(auto_now=True)
     assignedDoctorId = models.PositiveIntegerField(null=True)
-
+    status=models.BooleanField(default=False)
     gender = models.CharField(max_length=10, choices=GENDER)
+
 
     @property
     def get_name(self):
@@ -110,17 +111,18 @@ class Doctor(models.Model):
     department = models.CharField(
         max_length=50, choices=departments, default='')
     exp_years = models.PositiveIntegerField(null=False, default=0)
-    photo_URI = models.CharField(max_length=100, default="")
+    photo_URI = models.CharField(max_length=500, default="/image/default.png")
     category = models.CharField(choices=doctor_category,max_length=25, default="-")
     price_of_appointment = models.PositiveIntegerField(null=True)
     # schedule_details = models.CharField(max_length=20, choices=degrees)
     degree = models.CharField(max_length=50, default=" ",choices=degrees)
     rating = models.PositiveIntegerField(null=False, default=0)
-
+    
     address = models.CharField(max_length=40)
 
     status = models.BooleanField(default=False)
     gender = models.CharField(max_length=10, choices=GENDER, default="")
+    # photo = models.ImageField(upload_to="image/", blank=True)
 
     @property
     def get_name(self):
@@ -130,22 +132,28 @@ class Doctor(models.Model):
     def get_id(self):
         return self.id
 
-    def str(self):
+    def __str__(self):
         return "{} ({})".format(self.Doctor_First_Name+" "+self.Doctor_Last_Name, self.department)
 
 # __________________________________________________________________________________________________________________________________
 
 
-class Appointment(models.Model):
-    patientId = models.PositiveIntegerField(null=True)
-    doctorId = models.PositiveIntegerField(null=True)
-    patientName = models.CharField(max_length=40, null=True)
-    doctorName = models.CharField(max_length=40, null=True)
-    appointmentDate = models.DateField(null=False)
-    description = models.TextField(max_length=500)
-    status = models.BooleanField(default=False)
-    time = models.CharField(max_length=10, choices=Time, default="")
+# class doctorAppointments(models.Model):
+#     doctorId=models.PositiveIntegerField(null=False)
+    
+#___________________________________________________________________________________________________________________________________
 
+class Appointment(models.Model):
+    patientId=models.PositiveIntegerField(null=True)
+    doctorId=models.PositiveIntegerField(null=True)
+    patientName=models.CharField(max_length=40,null=True)
+    doctorName=models.CharField(max_length=40,null=True)
+    appointmentDate=models.DateField(null=False)
+    description=models.TextField(max_length=500)        
+    status=models.BooleanField(default=False)
+    time = models.CharField(max_length=10, choices=Time,default="")
+    # doctor = models.ForeignKey(Doctor,on_delete=models.CASCADE,null=True)
+    
     @property
     def get_docId(self):
         return self.doctorId

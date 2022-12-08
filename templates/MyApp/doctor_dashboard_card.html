@@ -16,6 +16,10 @@ h1{
   margin-top: 70px;
 }
 
+i{
+    color:  #4c50ed;
+}
+
 /* Float four columns side by side */
 .column {
   float: left;
@@ -60,22 +64,25 @@ h1{
 <h1 style="margin-top:10%;"> Your Appointment Summary </h1>
 <div class="row">
   <div class="column">
-    <div class="card" style="border-top: 5px solid rgb(255, 106, 106);">
+    <div class="card" style="border-top: .2rem solid #4c50ed">
       <p>{{appointmentcount}}</p>
       <h3>Your Appointments</h3>
-      
     </div>
   </div>
+</div>
 
+<div class="row">
   <div class="column">
-    <div class="card" style="border-top: 5px solid rgb(255, 178, 106);">
+    <div class="card" style="border-top: .2rem solid #4c50ed;">
       <p>{{patientcount}}</p>
       <h3>Confirmed Patients</h3>
     </div>
   </div>
+</div>
   
+<div class="row">
   <div class="column">
-    <div class="card" style="border-top: 5px solid rgb(0, 175, 0); margin-left:250px; width:100%;">
+    <div class="card" style="border-top: .2rem solid #4c50ed;">
       <p>{{patientdischarged}}</p>
       <h3>Patient Discharged</h3>
     </div>

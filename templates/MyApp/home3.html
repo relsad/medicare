@@ -22,7 +22,6 @@
     <a href="#home" class="logo"> <i class="fas fa-heartbeat"></i> medcare. </a>
 
     <nav class="navbar">
-
         <a href="#home">home</a>
         <a href="#about">about</a>
         <a href="#doctors">doctors</a>
@@ -168,34 +167,29 @@
 <section class="doctors" id="doctors">
 
     <h1 class="heading"> our <span>doctors</span> </h1>
-    <div class="search-container" style="padding: 2rem; padding-left: 50rem">
-            <form  method=POST action="{%url 'MyApp:searchengine'%}">
-                {%csrf_token%}
-                <input type="text" placeholder="Search Doctors" name="search" class="box" style="border: 0.2rem solid #4c50ed; border-radius:0.5rem">
-                <button type="submit"><i class="fa fa-search" style="color:#4c50ed; background: none"></i></button>
-            </form>
-    </div>
+
     <div class="box-container">
-        {%if search%}
-        {%for doctor in doctors%}
+
         <div class="box">
-            <img src="{{doctor.photo_URI}}" alt="">
-            <h3>{{doctor.Doctor_First_Name}}</h3>
+            <img src="{% static "images/doc-1.jpg" %}" alt="">
+            <h3>Jane Leo</h3>
             <span>expert doctor</span>
-
+ 
         </div>
-        {% endfor %}
-        {%else%}
-                {%for doctor in all%}
+
         <div class="box">
-            <img src="{{doctor.photo_URI}}" alt="">
-            <h3>{{doctor.Doctor_First_Name}}</h3>
+            <img src='{% static "images/doc-2.jpg" %}' alt="">
+            <h3>john deo</h3>
             <span>expert doctor</span>
-
+ 
         </div>
-        {% endfor %}
-        {%endif%}
 
+        <div class="box">
+            <img src='{% static "images/doc-3.jpg" %}' alt="">
+            <h3>Max Cream</h3>
+            <span>expert doctor</span>
+ 
+        </div>
 <!-- 
         <div class="box">
             <img src="image/doc-4.jpg" alt="">

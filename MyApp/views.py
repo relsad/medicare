@@ -14,6 +14,17 @@ from datetime import date
 #-------------------------------- MAIN PAGE VIEWS ----------------------------------
 #-----------------------------------------------------------------------------------
 
+def searchengine(request):
+    if request.method == 'POST':
+        search = request.POST['search']
+        if search:
+            doctors = Doctor.objects.filter(Doctor_First_Name__contains=search)
+            print(doctors)
+            return render(request, 'MyApp/homecopy.html', {'search': search, 'doctors': doctors})
+        else:
+            doctors = Doctor.objects.all()
+            return render(request, 'MyApp/homecopy.html', {'all': doctors})
+
 def home(request):
     return render(request, 'MyApp/home.html')
 
@@ -162,6 +173,83 @@ def patient_book_appointment(request):
     else: #no POST yet
         appointmentForm = PatientAppointmentForm()
     return render(request,'MyApp/patient_book_appointment.html',context=mydict)
+
+# @login_required
+# def patient_book_appointment(request):
+#     appointmentForm=PatientAppointmentForm()
+#     patient=Patient.objects.get(user_id=request.user.id) 
+#     message=None
+#     mydict={'appointmentForm':appointmentForm,'patient':patient,'message':message}
+
+#     if request.method=='POST':
+#         appointmentForm=PatientAppointmentForm(request.POST)
+
+#         if appointmentForm.is_valid():
+
+#             description=request.POST.get('description')
+#             doctor=Doctor.objects.get(user_id=request.POST.get('doctorId'))
+#             appointment=appointmentForm.save(commit=False)            
+#             appointment.doctorId=request.POST.get('doctorId')
+#             appointment.patientId=request.user.id #----user can choose any patient but only their info will be stored
+#             appointment.doctorName=User.objects.get(id=request.POST.get('doctorId'))
+#             appointment.patientName=patient.get_name
+#             patient.assignedDoctorId=appointment.get_docId
+#             patient.symptoms=appointment.get_description
+#             appointment.status=False
+#             patient.save()
+#             appointment.save()
+
+#             return HttpResponseRedirect(reverse('MyApp:patient_my_appointment'))
+#         else:
+#                 print(appointmentForm.errors)
+        
+#     else: #no POST yet
+#         appointmentForm = PatientAppointmentForm()
+#     return render(request,'MyApp/patient_book_appointment.html',context=mydict)
+# @login_required
+# def patient_book_appointment(request):
+#     appointmentForm=PatientAppointmentForm()
+#     patient=Patient.objects.get(user_id=request.user.id) 
+#     message=None
+#     mydict={'appointmentForm':appointmentForm,'patient':patient,'message':message}
+
+#     if request.method=='POST':
+#         appointmentForm=PatientAppointmentForm(request.POST)
+
+#         if appointmentForm.is_valid():
+#             description=request.POST.get('description')
+#             doctor=Doctor.objects.get(user_id=request.POST.get('doctorId'))
+#             appointment=appointmentForm.save(commit=False)
+#             appointment.doctorId=request.POST.get('doctorId')
+#             appointment.patientId=request.user.id #----user can choose any patient but only their info will be stored
+#             appointment.doctorName=User.objects.get(id=request.POST.get('doctorId'))
+#             appointment.patientName=patient.get_name
+#             appointment.doctor = doctor
+#             patient.assignedDoctorId=appointment.get_docId
+#             patient.symptoms=appointment.get_description
+#             appointment.status=False
+#             patient.save()
+#             appointment.save()
+
+#             return HttpResponseRedirect(reverse('MyApp:patient_my_appointment'))
+#         else:
+#                 print(appointmentForm.errors)
+        
+#     else: #no POST yet
+#         appointmentForm = PatientAppointmentForm()
+#     return render(request,'MyApp/patient_book_appointment.html',context=mydict)
+
+# @login_required
+# def patient_book_appointment(request):
+#     patient=Patient.objects.get(user_id=request.user.id) 
+#     message=None
+#     mydict={'patient':patient,'message':message}
+
+#     appointmentForm = PatientAppointmentForm()
+
+#     if request.method=='POST':
+#         doctors= Doctor.objects.all()
+
 
 @login_required
 def patient_my_appointment(request):

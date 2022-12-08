@@ -31,6 +31,19 @@ Time = [
     ("08:00 P.M","08:00 P.M"),
     ("08:30 P.M","08:30 P.M"),
 ]
+departments = [('Cardiologist', 'Cardiologist'),
+               ('Dermatologists', 'Dermatologists'),
+               ('General Physician', 'General Physician'),
+               ('NeuroSurgeon', 'NeuroSurgeon'),
+               ('GastroEntologists', 'GastroEntologists'),
+               ('Pediatrician', 'Pediatrician'),
+               ('Emergency Medicine Specialists',
+                'Emergency Medicine Specialists'),
+               ('Allergists/Immunologists', 'Allergists/Immunologists'),
+               ('Anesthesiologists', 'Anesthesiologists'),
+               ('Colon and Rectal Surgeons', 'Colon and Rectal Surgeons')
+]
+
 
 class PatientUserInfo(forms.ModelForm):
     password = forms.CharField(widget = forms.PasswordInput()) #hash out the password
@@ -42,7 +55,7 @@ class PatientUserInfo(forms.ModelForm):
 class PatientSignUpForm(forms.ModelForm):
     class Meta():
         model = Patient
-        fields = ('IIN','Patient_First_Name','Patient_Last_Name','Patient_Middle_Name', 'address', 'contact','emergency_number','blood_group','status', 'gender')        
+        fields = ('IIN','Patient_First_Name','Patient_Last_Name','Patient_Middle_Name', 'address', 'contact','emergency_number','blood_group','martial_status', 'gender')        
 #_____________________________________________________________________________________________________________________
 
 class DoctorUserInfo(forms.ModelForm):
@@ -55,7 +68,7 @@ class DoctorUserInfo(forms.ModelForm):
 class DoctorSignUpForm(forms.ModelForm):
     class Meta():
         model = Doctor
-        fields = ("date_of_birth",'IIN', "ID",'Doctor_First_Name','Doctor_Last_Name','Doctor_Middlename', 'contact', 'department','exp_years','photo_URI','category','price_of_appointment',
+        fields = ('date_of_birth','IIN', 'ID','Doctor_First_Name','Doctor_Last_Name','Doctor_Middlename','photo_URI', 'contact', 'department','exp_years','category','price_of_appointment',
         'degree','rating','address','gender')
         
 #_____________________________________________________________________________________________________________________
@@ -81,11 +94,15 @@ class AppointmentForm(forms.ModelForm):
         fields=['appointmentDate','time','description']
 
 class PatientAppointmentForm(forms.ModelForm):
-    doctorId=forms.ModelChoiceField(queryset=Doctor.objects.all().filter(status=True),empty_label="Doctor Name and Department", to_field_name="user_id")
+    doctorId=forms.ModelChoiceField(queryset=Doctor.objects.all().filter(status=True),empty_label="Doctor and Department", to_field_name="user_id")
     
     appointmentDate = forms.DateField(widget = forms.SelectDateWidget())
     class Meta:
         model=Appointment
         fields=['appointmentDate','time','description']
 
+
+# class PatientAppointmentDateForm(forms.ModelForm):
+    
+#     appointmentDate = forms.DateField(widget = forms.SelectDateWidget())
 #_____________________________________________________________________________________________________________________

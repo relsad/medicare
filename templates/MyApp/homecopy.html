@@ -29,6 +29,7 @@
         <a href="{% url 'MyApp:adminlogin' %}"><i class="fas fa-lock"></i>Admin</a>
         <a href="{% url 'MyApp:doctorlogin' %}"><i class="fas fa-user-md"></i>Doctor</a>
         <a href="{% url 'MyApp:patientlogin' %}"><i class="fas fa-user"></i>Patient</a>
+
     </nav>
 
     <div id="menu-btn" class="fas fa-bars"></div>
@@ -83,85 +84,6 @@
 
 </section> -->
 
-<!-- icons section ends -->
-
-<!-- services section starts  -->
-<!-- 
-<section class="services" id="services">
-
-    <h1 class="heading"> our <span>services</span> </h1>
-
-    <div class="box-container">
-
-        <div class="box">
-            <i class="fas fa-notes-medical"></i>
-            <h3>free checkups</h3>
-            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ad, omnis.</p>
-            <a href="#" class="btn"> learn more <span class="fas fa-chevron-right"></span> </a>
-        </div>
-
-        <div class="box">
-            <i class="fas fa-ambulance"></i>
-            <h3>24/7 ambulance</h3>
-            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ad, omnis.</p>
-            <a href="#" class="btn"> learn more <span class="fas fa-chevron-right"></span> </a>
-        </div>
-
-        <div class="box">
-            <i class="fas fa-user-md"></i>
-            <h3>expert doctors</h3>
-            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ad, omnis.</p>
-            <a href="#" class="btn"> learn more <span class="fas fa-chevron-right"></span> </a>
-        </div>
-
-        <div class="box">
-            <i class="fas fa-pills"></i>
-            <h3>medicines</h3>
-            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ad, omnis.</p>
-            <a href="#" class="btn"> learn more <span class="fas fa-chevron-right"></span> </a>
-        </div>
-
-        <div class="box">
-            <i class="fas fa-procedures"></i>
-            <h3>bed facility</h3>
-            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ad, omnis.</p>
-            <a href="#" class="btn"> learn more <span class="fas fa-chevron-right"></span> </a>
-        </div>
-
-        <div class="box">
-            <i class="fas fa-heartbeat"></i>
-            <h3>total care</h3>
-            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ad, omnis.</p>
-            <a href="#" class="btn"> learn more <span class="fas fa-chevron-right"></span> </a>
-        </div>
-
-    </div>
-
-</section> -->
-
-<!-- services section ends -->
-
-<!-- about section starts  -->
-
-<section class="about" id="about">
-
-    <h1 class="heading"> <span>about</span> us </h1>
-
-    <div class="row">
-
-        <div class="image">
-            <img src='{% static "images/doctor-group.jpg" %}' alt="">
-        </div>
-
-        <div class="content">
-            <h3>we take care of your healthy life</h3>
-        </div>
-
-    </div>
-
-</section>
-
-<!-- about section ends -->
 
 <!-- doctors section starts  -->
 
@@ -173,9 +95,31 @@
                 {%csrf_token%}
                 <input type="text" placeholder="Search Doctors" name="search" class="box" style="border: 0.2rem solid #4c50ed; border-radius:0.5rem">
                 <button type="submit"><i class="fa fa-search" style="color:#4c50ed; background: none"></i></button>
+
             </form>
     </div>
     <div class="box-container">
+
+<!--        <div class="box">-->
+<!--            <img src="{% static "images/doc-1.jpg" %}" alt="">-->
+<!--            <h3>Jane Leo</h3>-->
+<!--            <span>expert doctor</span>-->
+<!-- -->
+<!--        </div>-->
+
+<!--        <div class="box">-->
+<!--            <img src='{% static "images/doc-2.jpg" %}' alt="">-->
+<!--            <h3>john deo</h3>-->
+<!--            <span>expert doctor</span>-->
+<!-- -->
+<!--        </div>-->
+
+<!--        <div class="box">-->
+<!--            <img src='{% static "images/doc-3.jpg" %}' alt="">-->
+<!--            <h3>Max Cream</h3>-->
+<!--            <span>expert doctor</span>-->
+<!-- -->
+<!--        </div>-->
         {%if search%}
         {%for doctor in doctors%}
         <div class="box">

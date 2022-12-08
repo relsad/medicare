@@ -12,14 +12,18 @@
     <h1>Patient Summary </h1>
     <div class="row">
     <div class="column">
-        <div class="card" style="border-top: 5px solid rgb(255, 106, 106);">
-        <h2><a href="{% url 'MyApp:doctor_view_patient' %}" style="color:black">Patient Record</a></h2>
+        <div class="card" style="border-top: .2rem solid #4c50ed;">
+        <a href="{% url 'MyApp:doctor_view_patient' %}" style="color:black">
+            <i class="fas fa-id-badge"></i>
+            <h2>Patient Record</h2></a>
         </div>
     </div>
 
     <div class="column">
-        <div class="card" style="border-top: 5px solid rgb(255, 178, 106);">
-        <h2><a href="{% url 'MyApp:doctor_view_discharged_patient' %}" style="color:black">Discharged Patients</a></h2>
+        <div class="card" style="border-top: .2rem solid #4c50ed;">
+        <a href="{% url 'MyApp:doctor_view_discharged_patient' %}" style="color:black">
+            <i class="fas fa-check-double"></i>
+            <h2>Discharged Patients</h2></a>
         </div>
     </div>
     </div>
@@ -38,6 +42,10 @@ h1{
   margin-left: 300px;  
   text-align:center;
   margin-top: 120px;
+}
+
+i{
+    color: #4c50ed;
 }
 
 /* Float four columns side by side */

@@ -42,11 +42,6 @@ class Migration(migrations.Migration):
         ),
         migrations.AddField(
             model_name='doctor',
-            name='photo_URI',
-            field=models.CharField(default='', max_length=100),
-        ),
-        migrations.AddField(
-            model_name='doctor',
             name='price_of_appointment',
             field=models.PositiveIntegerField(null=True),
         ),

@@ -13,27 +13,41 @@
     <h1>Patient Summary </h1>
     <div class="row">
     <div class="column">
-        <div class="card" style="border-top: 5px solid rgb(255, 106, 106);">
-        <a href="{% url 'MyApp:admin_patient_record' %}" style="color:black; text-decoration:none;"><h2>Patient Record</h2></a>
+        <div class="card" style="border-top: .2rem solid #4c50ed;">
+        <a href="{% url 'MyApp:admin_patient_record' %}" style="color:black; text-decoration:none;">
+            <i class="fas fa-address-book"></i>
+            <h2>Patient Record</h2></a>
         </div>
     </div>
-
-
-    <div class="column">
-        <div class="card" style="border-top: 5px solid rgb(255, 178, 106);">
-        <a href="{% url 'MyApp:admin_admit_patient' %}" style="color:black; text-decoration:none;"><h2>Admit Patient </h2></a>
-        </div>
     </div>
 
+<div class="row">
     <div class="column">
-        <div class="card" style="border-top: 5px solid rgb(0, 175, 0);">
-        <a href="{% url 'MyApp:admin_approve_patient' %}" style="color:black; text-decoration:none;"><h2>Approve Patient </h2></a>
+        <div class="card" style="border-top: .2rem solid #4c50ed;">
+        <a href="{% url 'MyApp:admin_admit_patient' %}" style="color:black; text-decoration:none;">
+            <i class="fas fa-plus-circle"></i>
+            <h2>Admit Patient </h2></a>
         </div>
     </div>
-
+</div>
+    
+<div class="row">
     <div class="column">
-        <div class="card" style="border-top: 5px solid rgb(25, 68, 255);">
-        <a href="{% url 'MyApp:admin_discharge_patient' %}" style="color:black; text-decoration:none; "><h2>Discharge Patient </h2></a>
+        <div class="card" style="border-top: .2rem solid #4c50ed;">
+            <i class="fas fa-address-book"></i>
+        <a href="{% url 'MyApp:admin_approve_patient' %}" style="color:black; text-decoration:none;">
+            <i class="fas fa-address-book"></i>
+            <h2>Approve Patient </h2></a>
+        </div>
+    </div>
+</div>
+ 
+    <div class="row">
+        <div class="column">
+        <div class="card" style="border-top: .2rem solid #4c50ed;">
+        <a href="{% url 'MyApp:admin_discharge_patient' %}" style="color:black; text-decoration:none; ">
+            <i class="fas fa-trash"></i>
+            <h2>Discharge Patient </h2></a>
         </div>
     </div>
 
@@ -53,6 +67,10 @@ h1{
   margin-left: 300px;  
   text-align:center;
   margin-top: 120px;
+}
+
+i{
+    color: #4c50ed;
 }
 
 /* Float four columns side by side */

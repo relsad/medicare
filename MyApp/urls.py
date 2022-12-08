@@ -76,4 +76,5 @@ urlpatterns = [
     path('approve_appointment/<int:pk>', views.approve_appointment,name='approve_appointment'),
     path('reject_appointment/<int:pk>', views.reject_appointment,name='reject_appointment'),
     path('delete_appointment/<int:pk>', views.delete_appointment,name='delete_appointment'),
+     path('searchengine', views.searchengine,name='searchengine'),
 ]

@@ -7,6 +7,8 @@
       <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script> 
       <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
       <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+      <script src="/path/to/cdn/jquery.min.js"></script>
+      <script src="/path/to/dist/js/jquery-searchbox.js"></script>
     </head>
 
     <body style="background-color: white; "> 
@@ -32,15 +34,20 @@
             <div class="row">
               <div class="col-md-12">
                 <div class="form-group">Doctor: 
-                  {% render_field appointmentForm.doctorId class="form-control" placeholder="doctor" %}
-                </div>
+                  {% render_field appointmentForm.doctorId class="form-control" placeholder="doctor"  data-live-search="true"%}
+                  <!-- <select id="doctors" >
+                  {%for doctor in appointmentForm.doctorId%}
+                  <option value="{{doctor}}">{{ doctor}}</option>
+                  {%endfor%}
+                </select>-->
+                </div> 
 
                 <div class="form-group">Appointment Date: 
                   {% render_field appointmentForm.appointmentDate class="form-control" placeholder="Date of Appointment" %}
                 </div>
-
-                <div class="form-group">Appointment Time: 
-                  {% render_field appointmentForm.time class="form-control" placeholder="Date of Appointment" %}
+                
+                <div class="form-group">Doctor: 
+                  {% render_field appointmentForm.time class="form-control" placeholder="doctor" id="appointmentForm.doctorId.ID"%}
                 </div>
                 
                 <div class="form-group">Description/Extra Notes
@@ -99,4 +106,11 @@
           top: 50px;
         }
       </style>
+      <script>
+       $(document).ready(function () {
+//change selectboxes to selectize mode to be searchable
+   $("select").select2();
+});
+    </script>
     </body>
+

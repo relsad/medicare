@@ -14,14 +14,18 @@
     <h1>Appointments </h1>
     <div class="row">
     <div class="column">
-        <div class="card" style="border-top: 5px solid rgb(255, 106, 106);">
-        <h2><a href="{% url 'MyApp:doctor_view_appointment' %}" style="color:black">View Appointment</a></h2>
+        <div class="card" style="border-top: .2rem solid #4c50ed;">
+        <a href="{% url 'MyApp:doctor_view_appointment' %}" style="color:black">
+            <i class="fas fa-calendar-day"></i>
+            <h2>View Appointment</h2></a>
         </div>
     </div>
 
     <div class="column">
-        <div class="card" style="border-top: 5px solid rgb(255, 178, 106);">
-        <h2><a href="{% url 'MyApp:doctor_delete_appointment' %}" style="color:black">Delete Appointment</a></h2>
+        <div class="card" style="border-top: .2rem solid #4c50ed;">
+        <a href="{% url 'MyApp:doctor_delete_appointment' %}" style="color:black">
+            <i class="fas fa-trash"></i>
+        </a><h2>Delete Appointment</h2></a>
         </div>
     </div>
     </div>
